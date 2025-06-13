@@ -1,0 +1,20 @@
+{
+    "omnisharp.dotNetCliPaths": [
+        "/usr/local/share/dotnet/dotnet"
+    ],
+    "omnisharp.path": "latest",
+    "omnisharp.useGlobalMono": "never",
+    "omnisharp.useModernNet": true,
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+    "dotnet.server.useOmnisharp": false,
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.gitignore": true,
+        "**/.gitmodules": true,
+        "**/Library": true,
+        "**/Temp": true,
+        "**/obj": true,
+        "**/bin": true
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Unity Editor",
+            "type": "unity",
+            "path": "/Applications/Unity/Hub/Editor/6000.2.0b5/Unity.app/Contents/MacOS/Unity",
+            "request": "launch"
+        },
+        {
+            "name": "Unity Editor - Debug",
+            "type": "unity",
+            "request": "attach"
+        }
+    ]
+}
