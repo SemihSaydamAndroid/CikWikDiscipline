@@ -19,13 +19,13 @@ using UnityEngine;
 /// • Forces (Kuvvetler) - İtme, çekme
 /// 
 /// === COLLIDER NEDİR? ===
-/// Collider = Çarpışma algılama component'i
+/// Collider = Çarpışma algılama component'i --> iki nesnenin etkileşimi için asıl bu lazım; collider'lar birbirine değince etkileşim oluyor. Top plane'e düştüğünde düştüğünü anlaması için hem topta hem plane'de collider olmalı.
 /// • BoxCollider - Kutu şeklinde çarpışma
 /// • SphereCollider - Küre şeklinde çarpışma
 /// • CapsuleCollider - Kapsül şeklinde çarpışma
 /// • MeshCollider - Özel şekil çarpışma
 /// • Trigger - Geçilebilir çarpışma sensörü
-/// • IsTrigger - Fiziksel çarpışma vs sensör
+/// • IsTrigger - Fiziksel çarpışma vs sensör ---> COIN toplama gibi düşün; direct çarpışma yok, sadece geçiş algılama gerekiyor.
 /// </summary>
 public class TransformRigidbodyCollider : MonoBehaviour
 {

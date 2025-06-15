@@ -38,6 +38,13 @@ using UnityEngine;
 /// • Project penceresinde .prefab dosyası olarak saklanır
 /// • Instantiate() komutuyla çalışma zamanında oluşturulur
 /// • Örnek: Mermi, düşman, pickup gibi tekrar eden nesneler
+/// Yani 8 obje var her birinde isTrigger açmak yerine 1 obje oluştur prefab kaydet ve her yerde kullan.
+/// Bir de önemli bir özellik olarak, prefab'ı değiştirdiğinizde, o prefab'ı kullanan tüm GameObject'ler otomatik olarak güncellenir.
+/// Yani merkezi yönetimi sağlar. Global variable gibi. Fakat bunu yapmak için hiyerarcy'den değil projects'teki prefab'tan değişiklik yapman gerekir.
+/// Sürükleyip project'e bırakınca prefab oluşur. Tıkladığınızda prefab'ın içeriğini görebilirsiniz. 
+/// 6 tane prefab'tan oluşturup, 6ncıyı ana prefab'tan farklı yapabilirsin. Bunu yaptığında sol tarafında değişiklik gibi mavi olur. Hatta eklediğin componenetlerde mavileşir solda. 
+/// En üstte de Prefab Override çıkar, Revert veya apply seçenekleri gelir eğer onda değişiklik yaptıysan. Apply all yaparsan ana prefab dahil tüm prefab'ları düzenler buna göre. 
+
 /// </summary>
 public class GameObjects : MonoBehaviour
 {
