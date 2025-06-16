@@ -332,14 +332,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   _orientationTransform: {fileID: 1705625916}
   _moveSpeed: 20
+  _canDash: 1
+  _dashForce: 50
+  _dashCooldown: 0.5
   _jumpKey: 32
-  _jumpForce: 2
+  _jumpForce: 8
   _jumpCooldown: 0.5
   _canJump: 1
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   _playerHeight: 2
+  _normalGravity: -9.81
+  _jumpGravity: -20
 --- !u!1 &261240030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1350,7 @@ GameObject:
   - component: {fileID: 1168226573}
   - component: {fileID: 1168226572}
   - component: {fileID: 1168226571}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
