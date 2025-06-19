@@ -2,15 +2,41 @@ using UnityEngine;
 
 public class ThirdPersonCameraController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("References")]
+    [SerializeField] private Transform _playerTransform;
+    [SerializeField] private Transform _orientationTransform;
+    [SerializeField] private Transform _playerVisualTransform; // karakterin görüntü mesh kısmındaki değeri
 
-    // Update is called once per frame
-    void Update()
+    [Header("Settings")]
+    [SerializeField] private float _rotationSpeed;
+
+    private void Update()
     {
-        
+        // Kamera kontrolleri update veya late update içinde yapılabilir
+        // Bu yaklaşım 3. şahıs kameralarda yaygındır çünkü: Kamera oyuncudan yüksekte olabilir,Ama oyuncunun yatay hareket yönü önemli,Dikey fark göz ardı edilerek düz bakış açısı elde edilir
+        // Karakterin baktığı yönün directionunu açısını pozisyonunu görmemiz lazım :
+
+        // KAÇIRDIĞIN NOKTA : BU script şu an kamerada çalışıyor yani transform.postionu kameranın pozisyonunu veriyor.
+        Vector3 viewDirection =
+         _playerTransform.position - new Vector3(transform.position.x, _playerTransform.position.y, transform.position.z); // Y eksenindeki pozisyonu sabit tutarak bakış yönünü hesaplıyoruz
+
+        _orientationTransform.forward = viewDirection.normalized; // Yönü normalize ederek yön vektörünü ayarlıyoruz // Yani oryantasonum artık kameranın baktığı yere bakması gerekiyor.
+
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+
+        Vector3 inputDirection = _orientationTransform.forward * verticalInput + _orientationTransform.right * horizontalInput; // Yönü hesaplıyoruz
+
+        //Karakterin görsel parçasının transformu; karakteri görsel olarak döndüreceğiz. Görsel parça da playervisual diye ayrı bir şey yapmıştık hatırlarsan. Onu döndürsek yeterli oluyor yani
+        // geri döndüğünde görsel geri dönüyordu ya o olay yani. 
+        _playerVisualTransform
+            .forward = Vector3.Slerp(_playerVisualTransform.forward, inputDirection.normalized, _rotationSpeed); // Karakterin görsel parçasını input yönüne doğru döndürüyoruz
+                                                                                                                 // Bu işlem, karakterin görsel parçasının input yönüne doğru yumuşak bir şekilde dönmesini sağlar. Slerp, sferik lineer interpolasyon anlamına gelir ve iki vektör arasında yumuşak bir geçiş sağlar.
+                                                                                                                 // Bu şekilde karakterin görsel parçası, oyuncunun girdiği yönü takip eder ve yumuşak bir dönüş sağlar.
+                                                                                                                 // Lerp pozisyonlar için, Slerp rotasyonlar için kullanılır. Yani karakterin görsel parçasını input yönüne doğru yumuşak bir şekilde döndürüyoruz.
+        //5:35:29
+
+
     }
+    
 }
