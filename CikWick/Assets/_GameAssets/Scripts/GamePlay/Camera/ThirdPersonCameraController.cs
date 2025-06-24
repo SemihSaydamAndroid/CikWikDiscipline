@@ -12,6 +12,11 @@ public class ThirdPersonCameraController : MonoBehaviour
 
     private void Update()
     {
+
+        // Bu script, 3. şahıs kamera kontrolünü sağlar.Y rotasyonunda karakterin dönüşünü sağlıyor ve sadece Player görüntüsündeki rotasyonunu değiştiriyoruz. Efekt gibi oldu:
+        // Karakteri takip eden bir kamera kontrolünü yapmış oluyoruz : 
+
+
         // Kamera kontrolleri update veya late update içinde yapılabilir
         // Bu yaklaşım 3. şahıs kameralarda yaygındır çünkü: Kamera oyuncudan yüksekte olabilir,Ama oyuncunun yatay hareket yönü önemli,Dikey fark göz ardı edilerek düz bakış açısı elde edilir
         // Karakterin baktığı yönün directionunu açısını pozisyonunu görmemiz lazım :

@@ -242,6 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 121414522}
   - component: {fileID: 121414523}
+  - component: {fileID: 121414524}
   - component: {fileID: 121414521}
   - component: {fileID: 121414520}
   m_Layer: 0
@@ -347,6 +348,18 @@ MonoBehaviour:
     m_Bits: 4294967295
   _playerHeight: 2
   _groundDrag: 0
+--- !u!114 &121414524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121414519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ecb45de1adb4096a51b9052a07a9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateController
 --- !u!1 &261240030
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +630,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -691,8 +705,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.67857, y: -0.013749957, z: -2.43405}
+  m_LocalRotation: {x: 0.1982875, y: 0, z: 0, w: 0.9801439}
+  m_LocalPosition: {x: 1.17857, y: 2.03625, z: -3.43405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -774,6 +788,22 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b56112c0bc64ba49712443bcaf0f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCameraController
+  _playerTransform: {fileID: 121414522}
+  _orientationTransform: {fileID: 1705625916}
+  _playerVisualTransform: {fileID: 6895516441654631239}
+  _rotationSpeed: 7
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,6 +1640,7 @@ GameObject:
   - component: {fileID: 1412601330}
   - component: {fileID: 1412601332}
   - component: {fileID: 1412601331}
+  - component: {fileID: 1412601333}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -1625,8 +1656,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412601329}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.67857, y: -0.013749957, z: -2.43405}
+  m_LocalRotation: {x: 0.1982875, y: 0, z: 0, w: 0.9801439}
+  m_LocalPosition: {x: 1.17857, y: 2.03625, z: -3.43405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1645,8 +1676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineThirdPersonFollow
   Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0.5, y: -0.4, z: 0}
-  VerticalArmLength: 0.4
+  ShoulderOffset: {x: 0, y: 1.4, z: -1}
+  VerticalArmLength: 0.65
   CameraSide: 1
   CameraDistance: 2
   AvoidObstacles:
@@ -1701,6 +1732,35 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1412601333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412601329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38bda98361e1de48a4ca2bd86ea3c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
+  Composition:
+    ScreenPosition: {x: 0, y: 0}
+    DeadZone:
+      Enabled: 1
+      Size: {x: 0.2, y: 0.2}
+    HardLimits:
+      Enabled: 0
+      Size: {x: 0.8, y: 0.8}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 0.7, z: 0.2}
+  Damping: {x: 1, y: 1}
+  Lookahead:
+    Enabled: 1
+    Time: 0.1
+    Smoothing: 5.6
+    IgnoreY: 0
 --- !u!1 &1560967684
 GameObject:
   m_ObjectHideFlags: 0
